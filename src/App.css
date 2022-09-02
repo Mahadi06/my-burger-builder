@@ -1,38 +1,54 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&display=swap");
+/* header file */
+.logo {
+  height: 65px;
+  width: 65px;
+  margin-top: -18px;
+  margin-bottom: -10px;
+}
+.logo-title {
+  display: inline-block;
+  font-family: "DynaPuff", cursive;
+
+  font-size: 2rem;
+  margin-bottom: -15px;
+}
+.navbar-link {
+  text-decoration: none;
+  color: #caf0f8 !important;
+  font-size: 1.2rem !important;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.navbar-link:hover {
+  color: #03045e !important;
+}
+/* burger.js */
+.burger {
+  margin-top: 50px;
+}
+
+.burger img {
+  width: 450px;
+}
+/* controls */
+.card-starter {
+  width: 450px !important;
+  margin-top: 50px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.card-starter .card-title {
+  background-color: #0077b6;
   color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
-
-.App-link {
-  color: #61dafb;
+.add-item {
+  margin-right: 5px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.remove-item {
+  margin-left: 5px;
+}
+.active {
+  color: #ffd60a !important;
 }
