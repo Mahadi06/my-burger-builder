@@ -1,20 +1,20 @@
 import * as actionTypes from "./actionTypes";
 
-export const addIngredient = (ingreType) => {
+export const addIngredient = (igtype) => {
   return {
     type: actionTypes.ADD_INGREDIENT,
-    payload: ingreType,
+    payload: igtype,
   };
 };
 
-export const removeIngredient = (ingreType) => {
+export const removeIngredient = (igtype) => {
   return {
     type: actionTypes.REMOVE_INGREDIENT,
-    payload: ingreType,
+    payload: igtype,
   };
 };
 
-export const updateOrderable = (ingreType) => {
+export const updateOrderable = () => {
   return {
     type: actionTypes.UPDATE_ORDERABLE,
   };

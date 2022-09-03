@@ -4,7 +4,7 @@ import Control from "./Control";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import Summery from "../Summary";
 import { Link } from "react-router-dom";
-import { connect, Connect } from "react-redux/es/exports";
+import { connect } from "react-redux/es/exports";
 import {
   addIngredient,
   removeIngredient,
@@ -19,43 +19,27 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addIngredient: (igtype) => dispatch(addIngredient(igtype)),
+    removeIngredient: (igtype) => dispatch(removeIngredient(igtype)),
+    updateOrderable: () => dispatch(updateOrderable()),
+  };
+};
+
 class BurgerBuilder extends React.Component {
   state = {
     modalOpen: false,
   };
 
-  updateOrderable = (ingredients) => {
-    const sum = ingredients.reduce((sum, element) => {
-      return sum + element.amount;
-    }, 0);
-    this.setState({ orderable: sum > 0 });
-    console.log(this.state.orderable);
-  };
-
   addIngredient = (type) => {
-    const ingred = [...this.state.ingredients];
-    const newPrice = this.state.totalPrice + ingredientPrices[type];
-    for (const item of ingred) {
-      if (item.type === type) item.amount++;
-    }
-    this.setState({ ingredients: ingred, totalPrice: newPrice });
-    this.updateOrderable(ingred);
+    this.props.addIngredient(type);
+    this.props.updateOrderable();
   };
 
   removeIngredient = (type) => {
-    const ingred = [...this.state.ingredients];
-
-    let newPrice = this.state.totalPrice - ingredientPrices[type];
-
-    for (const item of ingred) {
-      if (item.type === type) {
-        if (item.amount <= 0) return;
-        item.amount--;
-      }
-    }
-
-    this.setState({ ingredients: ingred, totalPrice: newPrice });
-    this.updateOrderable(ingred);
+    this.props.removeIngredient(type);
+    this.props.updateOrderable();
   };
 
   toggleModal = () => {
@@ -100,4 +84,4 @@ class BurgerBuilder extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(BurgerBuilder);
+export default connect(mapStateToProps, mapDispatchToProps)(BurgerBuilder);

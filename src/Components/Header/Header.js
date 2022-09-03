@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar, NavbarBrand, NavItem } from "reactstrap";
+import { Nav, Navbar, NavbarBrand } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assests/burgerLogo.png";
 
