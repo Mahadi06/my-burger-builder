@@ -4,6 +4,8 @@ import BurgerBuilder from "./Burger-Builder/BurgerBuilder";
 import Orders from "./Orders";
 import Checkout from "./Checkout";
 import { Route, Routes } from "react-router";
+import Auth from "./Auth/Auth";
+
 const Main = () => {
   return (
     <div>
@@ -12,6 +14,7 @@ const Main = () => {
       <Routes>
         <Route path="/orders" element={<Orders />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/login" element={<Auth />} />
         <Route path="/" element={<BurgerBuilder />} />
       </Routes>
     </div>

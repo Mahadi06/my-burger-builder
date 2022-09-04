@@ -52,3 +52,40 @@
 .active {
   color: #ffd60a !important;
 }
+
+/* singel order js */
+.single-order {
+  border: 2px solid #0077b6;
+  width: 40%;
+  margin: 15px auto;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.single-order p {
+  font-weight: 500;
+}
+
+.ingredients span {
+  display: inline-block;
+  background-color: #42855b;
+  color: #caf0f8;
+  padding: 5px 8px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.ingredients span:nth-child(2) {
+  background-color: #ffb200;
+  color: black;
+}
+.ingredients span:nth-child(3) {
+  background-color: #850e35;
+}
+.order-failed {
+  border: 2px solid #0077b6;
+  width: 40%;
+  margin: 15px auto;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
