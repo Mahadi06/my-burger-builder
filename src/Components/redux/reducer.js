@@ -17,6 +17,9 @@ const initialState = {
   orderError: false,
   totalPrice: 80,
   orderable: false,
+  token: null,
+  userId: null,
+  authLoading: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -86,6 +89,30 @@ export const reducer = (state = initialState, action) => {
         orderError: true,
         orderLoading: false,
       };
+
+    //signup or login
+    case actionTypes.AUTH_SUCCESS:
+      return {
+        ...state,
+        token: action.payload.token,
+        userId: action.payload.userId,
+      };
+
+    //logout
+    case actionTypes.AUTH_LOGOUT:
+      return {
+        ...state,
+        token: null,
+        userId: null,
+      };
+
+    //showing spnner during signup or login
+    case actionTypes.AUTH_LOADING:
+      return {
+        ...state,
+        authLoading: action.payload,
+      };
+
     default:
       return state;
   }
