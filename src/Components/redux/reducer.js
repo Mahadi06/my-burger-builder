@@ -20,6 +20,7 @@ const initialState = {
   token: null,
   userId: null,
   authLoading: false,
+  authFailedMsg: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -104,6 +105,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         token: null,
         userId: null,
+        authFailedMsg: null,
       };
 
     //showing spnner during signup or login
@@ -111,6 +113,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         authLoading: action.payload,
+      };
+
+    case actionTypes.AUTH_FAILED:
+      return {
+        ...state,
+        authFailedMsg: action.payload,
       };
 
     default:

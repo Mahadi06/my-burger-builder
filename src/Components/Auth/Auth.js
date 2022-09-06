@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import { auth } from "../redux/authActionCreators";
 import Spinner from "../Spinner/spinner";
+import { UncontrolledAlert } from "reactstrap";
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -35,6 +36,15 @@ class Auth extends Component {
   };
 
   render() {
+    let errorMsg = null;
+    if (this.props.authFailedMsg) {
+      errorMsg = (
+        <UncontrolledAlert color="danger">
+          {this.props.authFailedMsg}
+        </UncontrolledAlert>
+      );
+    }
+
     let authForm = null;
 
     if (this.props.authLoading) {
@@ -61,8 +71,8 @@ class Auth extends Component {
 
             if (!values.password) {
               errors.password = "Required";
-            } else if (values.password.length < 4) {
-              errors.password = "Must be at least four charahters";
+            } else if (values.password.length < 6) {
+              errors.password = "Must be at least six charahters";
             }
 
             if (this.state.mode === "signup") {
@@ -83,6 +93,7 @@ class Auth extends Component {
               >
                 Switch to {this.state.mode === "signup" ? "Login" : "Signup"}
               </span>
+              {errorMsg}
               <form onSubmit={handleSubmit}>
                 <span className="text-danger">{errors.email}</span>
                 <input
